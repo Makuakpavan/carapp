@@ -1,8 +1,19 @@
+# Premium Car Dealership Platform
+
+**A full-featured automotive e-commerce web application** built with modern React best practices. Features an interactive car inventory, hero carousel, service booking modals, customer testimonials, and favorites management.
+
+**Tech Stack:** React 18 • TypeScript • Tailwind CSS • Vite • shadcn/ui Components
+
+**Skills Demonstrated:** Component Architecture • State Management • Responsive Design • Lazy Loading • Form Handling • Modal Management • Accessible UI Patterns
+
+**Status:** 🟢 Open to opportunities
+
+---
+
+## Technical Setup
 Using Node.js 20, Tailwind CSS v3.4.19, and Vite v7.2.4
 
 Tailwind CSS has been set up with the shadcn theme
-
-Setup complete: /mnt/okcomputer/output/app
 
 Components (40+):
   accordion, alert-dialog, alert, aspect-ratio, avatar, badge, breadcrumb,

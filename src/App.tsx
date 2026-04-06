@@ -1,38 +1,93 @@
-import { useEffect, useState } from 'react';
-import Header from './sections/Header';
-import Hero from './sections/Hero';
-import About from './sections/About';
-import Inventory from './sections/Inventory';
-import Services from './sections/Services';
-import Statistics from './sections/Statistics';
-import Testimonials from './sections/Testimonials';
-import Blog from './sections/Blog';
-import CTA from './sections/CTA';
-import Footer from './sections/Footer';
-import './App.css';
+import { lazy, Suspense } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Header from "./sections/Header";
+import Footer from "./sections/Footer";
+const Home = lazy(() => import("./sections/Home"));
+const About = lazy(() => import("./sections/About"));
+const Inventory = lazy(() => import("./sections/Inventory"));
+const Services = lazy(() => import("./sections/Services"));
+const Statistics = lazy(() => import("./sections/Statistics"));
+const Testimonials = lazy(() => import("./sections/Testimonials"));
+const Blog = lazy(() => import("./sections/Blog"));
+const CTA = lazy(() => import("./sections/CTA"));
+import "./App.css";
 
 function App() {
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  useEffect(() => {
-    setIsLoaded(true);
-  }, []);
-
   return (
-    <div className={`min-h-screen bg-black transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
-      <Header />
-      <main>
-        <Hero />
-        <About />
-        <Inventory />
-        <Services />
-        <Statistics />
-        <Testimonials />
-        <Blog />
-        <CTA />
-      </main>
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <div className="flex flex-col min-h-screen bg-black">
+        <Header />
+        <main className="flex-grow">
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Suspense fallback={<div>Loading...</div>}>
+                  <Home />
+                </Suspense>
+              }
+            />
+            <Route
+              path="/about"
+              element={
+                <Suspense fallback={<div>Loading...</div>}>
+                  <About />
+                </Suspense>
+              }
+            />
+            <Route
+              path="/inventory"
+              element={
+                <Suspense fallback={<div>Loading...</div>}>
+                  <Inventory />
+                </Suspense>
+              }
+            />
+            <Route
+              path="/services"
+              element={
+                <Suspense fallback={<div>Loading...</div>}>
+                  <Services />
+                </Suspense>
+              }
+            />
+            <Route
+              path="/statistics"
+              element={
+                <Suspense fallback={<div>Loading...</div>}>
+                  <Statistics />
+                </Suspense>
+              }
+            />
+            <Route
+              path="/testimonials"
+              element={
+                <Suspense fallback={<div>Loading...</div>}>
+                  <Testimonials />
+                </Suspense>
+              }
+            />
+            <Route
+              path="/blog"
+              element={
+                <Suspense fallback={<div>Loading...</div>}>
+                  <Blog />
+                </Suspense>
+              }
+            />
+            <Route
+              path="/cta"
+              element={
+                <Suspense fallback={<div>Loading...</div>}>
+                  <CTA />
+                </Suspense>
+              }
+            />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }
 
