@@ -30,11 +30,11 @@ const services = [
 ];
 
 const socialLinks = [
-  { icon: Facebook, href: '#', label: 'Facebook' },
-  { icon: Twitter, href: '#', label: 'Twitter' },
-  { icon: Instagram, href: '#', label: 'Instagram' },
-  { icon: Linkedin, href: '#', label: 'LinkedIn' },
-  { icon: Youtube, href: '#', label: 'YouTube' },
+  { icon: Facebook, href: 'https://www.facebook.com', label: 'Facebook' },
+  { icon: Twitter, href: 'https://twitter.com', label: 'Twitter' },
+  { icon: Instagram, href: 'https://instagram.com', label: 'Instagram' },
+  { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
+  { icon: Youtube, href: 'https://youtube.com', label: 'YouTube' },
 ];
 
 const Footer = () => {
@@ -146,7 +146,7 @@ const Footer = () => {
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-[#FFD700] flex-shrink-0" />
                 <span className="text-sm text-gray-400">
-                  +234 810 7048 910
+                  (+234) 810-7048-910
                 </span>
               </li>
               <li className="flex items-center gap-3">

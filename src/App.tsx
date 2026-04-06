@@ -2,7 +2,8 @@ import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./sections/Header";
 import Footer from "./sections/Footer";
-const Home = lazy(() => import("./sections/Home"));
+const Landing = lazy(() => import("./sections/Landing"));
+const Hero = lazy(() => import("./sections/Hero"));
 const About = lazy(() => import("./sections/About"));
 const Inventory = lazy(() => import("./sections/Inventory"));
 const Services = lazy(() => import("./sections/Services"));
@@ -23,7 +24,15 @@ function App() {
               path="/"
               element={
                 <Suspense fallback={<div>Loading...</div>}>
-                  <Home />
+                  <Landing />
+                </Suspense>
+              }
+            />
+            <Route
+              path="/hero"
+              element={
+                <Suspense fallback={<div>Loading...</div>}>
+                  <Hero />
                 </Suspense>
               }
             />

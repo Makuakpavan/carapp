@@ -99,14 +99,14 @@ const CTA = () => {
                     <span className="text-sm tracking-wider text-gray-500 uppercase">
                       Call Us
                     </span>
-                    <p className="mt-1 text-lg text-white">+1 (800) 555-LUXE</p>
+                    <p className="mt-1 text-lg text-white">(+234) 810-7048-910</p>
                   </div>
                   <div>
                     <span className="text-sm tracking-wider text-gray-500 uppercase">
                       Email Us
                     </span>
                     <p className="mt-1 text-lg text-white">
-                      info@luxeautomotive.com
+                      makuakpavan022@gmail.com
                     </p>
                   </div>
                 </div>
