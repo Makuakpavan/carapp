@@ -1,50 +1,51 @@
-import { useState } from 'react';
-import { 
-  MapPin, 
-  Phone, 
-  Mail, 
-  Clock, 
-  Facebook, 
-  Twitter, 
-  Instagram, 
-  Linkedin, 
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Clock,
+  Facebook,
+  Twitter,
+  Instagram,
+  Linkedin,
   Youtube,
   Send,
-  ArrowRight
-} from 'lucide-react';
+  ArrowRight,
+} from "lucide-react";
 
 const quickLinks = [
-  { name: 'Home', href: '#home' },
-  { name: 'Inventory', href: '#inventory' },
-  { name: 'Services', href: '#services' },
-  { name: 'About Us', href: '#about' },
-  { name: 'Contact', href: '#contact' },
+  { name: "Home", href: "#home" },
+  { name: "Inventory", href: "#inventory" },
+  { name: "Services", href: "#services" },
+  { name: "About Us", href: "#about" },
+  { name: "Contact", href: "#contact" },
 ];
 
 const services = [
-  { name: 'Vehicle Sales', href: '#' },
-  { name: 'Financing', href: '#' },
-  { name: 'Trade-In', href: '#' },
-  { name: 'Maintenance', href: '#' },
-  { name: 'Customization', href: '#' },
+  { name: "Vehicle Sales", href: "#" },
+  { name: "Financing", href: "#" },
+  { name: "Trade-In", href: "#" },
+  { name: "Maintenance", href: "#" },
+  { name: "Customization", href: "#" },
 ];
 
 const socialLinks = [
-  { icon: Facebook, href: 'https://www.facebook.com', label: 'Facebook' },
-  { icon: Twitter, href: 'https://twitter.com', label: 'Twitter' },
-  { icon: Instagram, href: 'https://instagram.com', label: 'Instagram' },
-  { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-  { icon: Youtube, href: 'https://youtube.com', label: 'YouTube' },
+  { icon: Facebook, href: "https://www.facebook.com", label: "Facebook" },
+  { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
+  { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
+  { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
+  { icon: Youtube, href: "https://youtube.com", label: "YouTube" },
 ];
 
 const Footer = () => {
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle newsletter subscription
-    alert('Thank you for subscribing!');
-    setEmail('');
+    alert("Thank you for subscribing!");
+    setEmail("");
   };
 
   return (
@@ -54,19 +55,22 @@ const Footer = () => {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand Column */}
           <div className="lg:col-span-1">
-            <a href="#home" className="inline-block mb-6">
-              <span className="text-2xl font-bold tracking-wider text-white" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <Link to="/" className="inline-block mb-6">
+              <span
+                className="text-2xl font-bold tracking-wider text-white"
+                style={{ fontFamily: "Playfair Display, serif" }}
+              >
                 LUXE
               </span>
               <span className="text-[#FFD700] text-lg tracking-[0.3em]">
                 AUTOMOTIVE
               </span>
-            </a>
+            </Link>
             <p className="mb-6 text-sm leading-relaxed text-gray-400">
-              Your premier destination for luxury vehicles. We bring the world's 
+              Your premier destination for luxury vehicles. We bring the world's
               finest automobiles to discerning drivers.
             </p>
-            
+
             {/* Social Links */}
             <div className="flex gap-3">
               {socialLinks.map((social) => (
@@ -84,9 +88,9 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 
+            <h4
               className="mb-6 text-lg font-medium text-white"
-              style={{ fontFamily: 'Playfair Display, serif' }}
+              style={{ fontFamily: "Playfair Display, serif" }}
             >
               Quick Links
             </h4>
@@ -107,9 +111,9 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <h4 
+            <h4
               className="mb-6 text-lg font-medium text-white"
-              style={{ fontFamily: 'Playfair Display, serif' }}
+              style={{ fontFamily: "Playfair Display, serif" }}
             >
               Services
             </h4>
@@ -130,9 +134,9 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h4 
+            <h4
               className="mb-6 text-lg font-medium text-white"
-              style={{ fontFamily: 'Playfair Display, serif' }}
+              style={{ fontFamily: "Playfair Display, serif" }}
             >
               Contact Us
             </h4>
@@ -169,9 +173,9 @@ const Footer = () => {
         <div className="pt-12 mt-16 border-t border-white/10">
           <div className="grid items-center gap-8 md:grid-cols-2">
             <div>
-              <h4 
+              <h4
                 className="mb-2 text-xl font-medium text-white"
-                style={{ fontFamily: 'Playfair Display, serif' }}
+                style={{ fontFamily: "Playfair Display, serif" }}
               >
                 Stay Updated
               </h4>
@@ -210,15 +214,15 @@ const Footer = () => {
               © {new Date().getFullYear()} Luxe Automotive. All rights reserved.
             </p>
             <div className="flex gap-6">
-              <a href="#" className="text-gray-500 text-sm hover:text-[#FFD700] transition-colors duration-300">
+              <button className="text-gray-500 text-sm hover:text-[#FFD700] transition-colors duration-300">
                 Privacy Policy
-              </a>
-              <a href="#" className="text-gray-500 text-sm hover:text-[#FFD700] transition-colors duration-300">
+              </button>
+              <button className="text-gray-500 text-sm hover:text-[#FFD700] transition-colors duration-300">
                 Terms of Service
-              </a>
-              <a href="#" className="text-gray-500 text-sm hover:text-[#FFD700] transition-colors duration-300">
+              </button>
+              <button className="text-gray-500 text-sm hover:text-[#FFD700] transition-colors duration-300">
                 Cookie Policy
-              </a>
+              </button>
             </div>
           </div>
         </div>

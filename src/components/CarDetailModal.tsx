@@ -29,8 +29,8 @@ const CarDetailModal = ({ isOpen, onClose, car }: CarDetailModalProps) => {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-2xl bg-gradient-to-br from-gray-900 to-black border border-[#FFD700]/20">
-        <DialogHeader className="flex items-center justify-between">
+      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto bg-gradient-to-br from-gray-900 to-black border border-[#FFD700]/20">
+        <DialogHeader className="sticky top-0 z-10 flex items-center justify-between bg-gradient-to-br from-gray-900 to-black pb-4">
           <DialogTitle
             className="text-2xl font-bold text-white"
             style={{ fontFamily: "Playfair Display, serif" }}
@@ -42,13 +42,13 @@ const CarDetailModal = ({ isOpen, onClose, car }: CarDetailModalProps) => {
           </DialogClose>
         </DialogHeader>
 
-        <div className="grid md:grid-cols-2 gap-6 py-6">
+        <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-6 py-6">
           {/* Image */}
           <div className="relative">
             <img
               src={car.image}
               alt={car.name}
-              className="w-full h-80 object-cover rounded-lg border border-[#FFD700]/20"
+              className="w-full h-64 md:h-80 object-cover rounded-lg border border-[#FFD700]/20"
             />
             <div className="absolute top-3 left-3 px-3 py-1 bg-[#FFD700] text-black text-xs uppercase tracking-wider font-medium rounded">
               {car.type}

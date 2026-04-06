@@ -3,6 +3,17 @@
 /* Smooth scroll behavior */
 html {
   scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Prevent layout shift on scrollbar */
+html {
+  scrollbar-gutter: stable;
 }
 
 /* Custom animations */
@@ -73,6 +84,30 @@ html {
   animation: shimmer 2s infinite;
 }
 
+/* Scrollable container defaults */
+.scrollable {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Custom scrollbar styling */
+.scrollable::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollable::-webkit-scrollbar-track {
+  background: rgba(255, 215, 0, 0.05);
+}
+
+.scrollable::-webkit-scrollbar-thumb {
+  background: rgba(255, 215, 0, 0.3);
+  border-radius: 3px;
+}
+
+.scrollable::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 215, 0, 0.5);
+}
+
 /* Responsive typography */
 @media (max-width: 640px) {
   .section-title {
@@ -99,3 +134,24 @@ input:focus-visible {
     scroll-behavior: auto !important;
   }
 }
+
+/* Mobile responsive utilities */
+@media (max-width: 768px) {
+  /* Ensure main content area is scrollable */
+  main {
+    overflow-x: hidden;
+  }
+  
+  /* Better touch targets on mobile */
+  button {
+    min-height: 44px;
+  }
+  
+  /* Improved form inputs on mobile */
+  input,
+  select,
+  textarea {
+    font-size: 16px; /* Prevents zoom on focus in iOS */
+  }
+}
+

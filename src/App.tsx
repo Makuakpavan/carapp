@@ -1,5 +1,6 @@
 import { lazy, Suspense } from "react";
 import Loader from "./sections/Loader";
+import ScrollToTop from "./components/ScrollToTop";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./sections/Header";
 import Footer from "./sections/Footer";
@@ -17,6 +18,7 @@ import "./App.css";
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <div className="flex flex-col min-h-screen bg-black">
         <Header />
         <main className="flex-grow">

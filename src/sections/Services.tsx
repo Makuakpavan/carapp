@@ -1,42 +1,57 @@
-import { useEffect, useRef, useState } from 'react';
-import { Car, Calculator, RefreshCw, Wrench, Paintbrush, Star } from 'lucide-react';
+import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import {
+  Car,
+  Calculator,
+  RefreshCw,
+  Wrench,
+  Paintbrush,
+  Star,
+} from "lucide-react";
 
 const services = [
   {
     icon: Car,
-    title: 'Vehicle Sales',
-    description: 'Premium new and pre-owned vehicles from the world\'s finest manufacturers.',
+    title: "Vehicle Sales",
+    description:
+      "Premium new and pre-owned vehicles from the world's finest manufacturers.",
   },
   {
     icon: Calculator,
-    title: 'Financing Options',
-    description: 'Flexible financing solutions tailored to your needs and budget.',
+    title: "Financing Options",
+    description:
+      "Flexible financing solutions tailored to your needs and budget.",
   },
   {
     icon: RefreshCw,
-    title: 'Trade-In Services',
-    description: 'Get the best value for your current vehicle with our transparent appraisal process.',
+    title: "Trade-In Services",
+    description:
+      "Get the best value for your current vehicle with our transparent appraisal process.",
   },
   {
     icon: Wrench,
-    title: 'Maintenance & Repairs',
-    description: 'Factory-trained technicians and genuine parts for optimal performance.',
+    title: "Maintenance & Repairs",
+    description:
+      "Factory-trained technicians and genuine parts for optimal performance.",
   },
   {
     icon: Paintbrush,
-    title: 'Vehicle Customization',
-    description: 'Personalize your vehicle with premium accessories and custom modifications.',
+    title: "Vehicle Customization",
+    description:
+      "Personalize your vehicle with premium accessories and custom modifications.",
   },
   {
     icon: Star,
-    title: 'Concierge Services',
-    description: 'White-glove service including delivery, pickup, and exclusive events.',
+    title: "Concierge Services",
+    description:
+      "White-glove service including delivery, pickup, and exclusive events.",
   },
 ];
 
 const Services = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -46,7 +61,7 @@ const Services = () => {
           observer.unobserve(entry.target);
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     if (sectionRef.current) {
@@ -67,16 +82,19 @@ const Services = () => {
 
       <div className="w-full px-4 sm:px-6 lg:px-12 xl:px-20 relative z-10">
         {/* Header */}
-        <div className={`text-center mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div
+          className={`text-center mb-16 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+        >
           <span className="section-subtitle">Our Services</span>
-          <h2 
+          <h2
             className="section-title mx-auto"
-            style={{ fontFamily: 'Playfair Display, serif' }}
+            style={{ fontFamily: "Playfair Display, serif" }}
           >
             Comprehensive Auto Solutions
           </h2>
           <p className="section-description mx-auto">
-            From sales to service, we provide end-to-end automotive solutions for discerning clients.
+            From sales to service, we provide end-to-end automotive solutions
+            for discerning clients.
           </p>
         </div>
 
@@ -86,11 +104,15 @@ const Services = () => {
             <div
               key={service.title}
               className={`group relative p-8 bg-white/5 border border-white/10 hover:bg-[#FFD700]/5 hover:border-[#FFD700]/30 transition-all duration-500 ${
-                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+                isVisible
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-20"
               }`}
-              style={{ 
+              style={{
                 transitionDelay: `${300 + index * 100}ms`,
-                transform: isVisible ? `translateY(${index % 2 === 0 ? '0' : '20px'})` : 'translateY(80px)'
+                transform: isVisible
+                  ? `translateY(${index % 2 === 0 ? "0" : "20px"})`
+                  : "translateY(80px)",
               }}
             >
               {/* Icon */}
@@ -103,9 +125,9 @@ const Services = () => {
               </div>
 
               {/* Content */}
-              <h3 
+              <h3
                 className="text-white text-xl font-medium mb-3 group-hover:text-[#FFD700] transition-colors duration-300"
-                style={{ fontFamily: 'Playfair Display, serif' }}
+                style={{ fontFamily: "Playfair Display, serif" }}
               >
                 {service.title}
               </h3>
@@ -124,13 +146,16 @@ const Services = () => {
         </div>
 
         {/* Bottom CTA */}
-        <div className={`mt-16 text-center transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '900ms' }}>
+        <div
+          className={`mt-16 text-center transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+          style={{ transitionDelay: "900ms" }}
+        >
           <p className="text-gray-400 mb-6">
             Need a custom solution? Our team is ready to assist you.
           </p>
-          <a href="#contact" className="btn-secondary">
+          <button onClick={() => navigate("/cta")} className="btn-secondary">
             Contact Our Team
-          </a>
+          </button>
         </div>
       </div>
     </section>

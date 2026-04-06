@@ -55,13 +55,13 @@ const ScheduleCallModal = ({ isOpen, onClose }: ScheduleCallModalProps) => {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-md bg-gradient-to-br from-gray-900 to-black border border-[#FFD700]/20">
-        <DialogHeader className="flex items-center justify-between">
+      <DialogContent className="max-w-sm sm:max-w-md max-h-[90vh] overflow-y-auto bg-gradient-to-br from-gray-900 to-black border border-[#FFD700]/20">
+        <DialogHeader className="sticky top-0 z-10 flex items-center justify-between bg-gradient-to-br from-gray-900 to-black pb-4">
           <DialogTitle
-            className="text-2xl font-bold text-white flex items-center gap-2"
+            className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2"
             style={{ fontFamily: "Playfair Display, serif" }}
           >
-            <Phone className="w-6 h-6 text-[#FFD700]" />
+            <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-[#FFD700]" />
             Schedule a Call
           </DialogTitle>
           <DialogClose className="text-gray-400 hover:text-white transition-colors">
@@ -87,14 +87,14 @@ const ScheduleCallModal = ({ isOpen, onClose }: ScheduleCallModalProps) => {
               </svg>
             </div>
             <h3 className="text-white text-lg font-medium mb-2">Thank You!</h3>
-            <p className="text-gray-400">
+            <p className="text-gray-400 text-sm sm:text-base">
               We'll contact you soon to confirm your appointment.
             </p>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4 py-6">
             <div>
-              <label className="block text-sm text-gray-400 mb-2">
+              <label className="block text-xs sm:text-sm text-gray-400 mb-2">
                 Full Name
               </label>
               <input
@@ -103,13 +103,13 @@ const ScheduleCallModal = ({ isOpen, onClose }: ScheduleCallModalProps) => {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:border-[#FFD700] focus:outline-none transition"
+                className="w-full px-3 sm:px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:border-[#FFD700] focus:outline-none transition text-sm sm:text-base"
                 placeholder="John Doe"
               />
             </div>
 
             <div>
-              <label className="block text-sm text-gray-400 mb-2">
+              <label className="block text-xs sm:text-sm text-gray-400 mb-2">
                 Email Address
               </label>
               <input
@@ -118,13 +118,13 @@ const ScheduleCallModal = ({ isOpen, onClose }: ScheduleCallModalProps) => {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:border-[#FFD700] focus:outline-none transition"
+                className="w-full px-3 sm:px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:border-[#FFD700] focus:outline-none transition text-sm sm:text-base"
                 placeholder="john@example.com"
               />
             </div>
 
             <div>
-              <label className="block text-sm text-gray-400 mb-2">
+              <label className="block text-xs sm:text-sm text-gray-400 mb-2">
                 Phone Number
               </label>
               <input
@@ -133,14 +133,14 @@ const ScheduleCallModal = ({ isOpen, onClose }: ScheduleCallModalProps) => {
                 value={formData.phone}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:border-[#FFD700] focus:outline-none transition"
+                className="w-full px-3 sm:px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:border-[#FFD700] focus:outline-none transition text-sm sm:text-base"
                 placeholder="+1 (800) 555-0000"
               />
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-2 sm:gap-4">
               <div>
-                <label className="block text-sm text-gray-400 mb-2">
+                <label className="block text-xs sm:text-sm text-gray-400 mb-2">
                   Preferred Date
                 </label>
                 <input
@@ -149,11 +149,11 @@ const ScheduleCallModal = ({ isOpen, onClose }: ScheduleCallModalProps) => {
                   value={formData.preferredDate}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:border-[#FFD700] focus:outline-none transition"
+                  className="w-full px-3 sm:px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:border-[#FFD700] focus:outline-none transition text-sm sm:text-base"
                 />
               </div>
               <div>
-                <label className="block text-sm text-gray-400 mb-2">
+                <label className="block text-xs sm:text-sm text-gray-400 mb-2">
                   Preferred Time
                 </label>
                 <select
@@ -161,7 +161,7 @@ const ScheduleCallModal = ({ isOpen, onClose }: ScheduleCallModalProps) => {
                   value={formData.preferredTime}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:border-[#FFD700] focus:outline-none transition"
+                  className="w-full px-3 sm:px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:border-[#FFD700] focus:outline-none transition text-sm sm:text-base"
                 >
                   <option value="">Select time</option>
                   <option value="09:00">09:00 AM</option>
@@ -176,7 +176,7 @@ const ScheduleCallModal = ({ isOpen, onClose }: ScheduleCallModalProps) => {
 
             <button
               type="submit"
-              className="w-full mt-6 px-6 py-3 bg-[#FFD700] text-black font-medium uppercase tracking-wider text-sm hover:bg-yellow-400 transition-colors rounded-lg"
+              className="w-full mt-6 px-4 sm:px-6 py-3 bg-[#FFD700] text-black font-medium uppercase tracking-wider text-xs sm:text-sm hover:bg-yellow-400 transition-colors rounded-lg"
             >
               Confirm Appointment
             </button>

@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { ChevronRight, Fuel, Zap, Settings } from "lucide-react";
 import CarDetailModal from "../components/CarDetailModal";
 
@@ -84,6 +85,7 @@ const Inventory = () => {
   const [selectedCar, setSelectedCar] = useState<Car | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -112,7 +114,7 @@ const Inventory = () => {
     <section
       id="inventory"
       ref={sectionRef}
-      className="relative py-24 md:py-32 bg-black overflow-hidden"
+      className="relative py-24 overflow-hidden bg-black md:py-32"
     >
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
@@ -125,19 +127,19 @@ const Inventory = () => {
         />
       </div>
 
-      <div className="w-full px-4 sm:px-6 lg:px-12 xl:px-20 relative z-10">
+      <div className="relative z-10 w-full px-4 sm:px-6 lg:px-12 xl:px-20">
         {/* Header */}
         <div
           className={`text-center mb-16 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         >
           <span className="section-subtitle">Latest Inventory</span>
           <h2
-            className="section-title mx-auto"
+            className="mx-auto section-title"
             style={{ fontFamily: "Playfair Display, serif" }}
           >
             Explore Our Premium Collection
           </h2>
-          <p className="section-description mx-auto">
+          <p className="mx-auto section-description">
             Handpicked luxury vehicles, each meticulously inspected and ready to
             deliver an exceptional driving experience.
           </p>
@@ -164,7 +166,7 @@ const Inventory = () => {
         </div>
 
         {/* Cars Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {filteredCars.map((car, index) => (
             <div
               key={car.id}
@@ -180,7 +182,7 @@ const Inventory = () => {
                 <img
                   src={car.image}
                   alt={car.name}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
 
@@ -190,7 +192,7 @@ const Inventory = () => {
                 </div>
 
                 {/* Price */}
-                <div className="absolute bottom-4 right-4 text-right">
+                <div className="absolute text-right bottom-4 right-4">
                   <div
                     className="text-[#FFD700] text-2xl font-bold"
                     style={{ fontFamily: "Playfair Display, serif" }}
@@ -213,17 +215,17 @@ const Inventory = () => {
                 <div className="grid grid-cols-3 gap-4 mb-6">
                   <div className="text-center">
                     <Fuel className="w-5 h-5 text-[#FFD700] mx-auto mb-1" />
-                    <span className="text-gray-400 text-xs">{car.engine}</span>
+                    <span className="text-xs text-gray-400">{car.engine}</span>
                   </div>
                   <div className="text-center">
                     <Zap className="w-5 h-5 text-[#FFD700] mx-auto mb-1" />
-                    <span className="text-gray-400 text-xs">
+                    <span className="text-xs text-gray-400">
                       {car.horsepower}
                     </span>
                   </div>
                   <div className="text-center">
                     <Settings className="w-5 h-5 text-[#FFD700] mx-auto mb-1" />
-                    <span className="text-gray-400 text-xs">
+                    <span className="text-xs text-gray-400">
                       {car.transmission}
                     </span>
                   </div>
@@ -238,7 +240,7 @@ const Inventory = () => {
                   className="w-full py-3 border border-white/20 text-white text-sm uppercase tracking-wider font-medium hover:bg-[#FFD700] hover:border-[#FFD700] hover:text-black transition-all duration-300 flex items-center justify-center gap-2 group/btn"
                 >
                   View Details
-                  <ChevronRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-300" />
+                  <ChevronRight className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
                 </button>
               </div>
             </div>
@@ -250,10 +252,13 @@ const Inventory = () => {
           className={`text-center mt-12 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
           style={{ transitionDelay: "900ms" }}
         >
-          <a href="#inventory" className="btn-primary">
+          <button
+            onClick={() => navigate("/inventory")}
+            className="btn-primary"
+          >
             View All Inventory
             <ChevronRight className="w-5 h-5 ml-2" />
-          </a>
+          </button>
         </div>
       </div>
 
