@@ -50,19 +50,19 @@ const Footer = () => {
   return (
     <footer className="relative bg-black border-t border-white/10">
       {/* Main Footer */}
-      <div className="w-full px-4 sm:px-6 lg:px-12 xl:px-20 py-16 md:py-20">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <div className="w-full px-4 py-16 sm:px-6 lg:px-12 xl:px-20 md:py-20">
+        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand Column */}
           <div className="lg:col-span-1">
             <a href="#home" className="inline-block mb-6">
-              <span className="text-2xl font-bold text-white tracking-wider" style={{ fontFamily: 'Playfair Display, serif' }}>
+              <span className="text-2xl font-bold tracking-wider text-white" style={{ fontFamily: 'Playfair Display, serif' }}>
                 LUXE
               </span>
               <span className="text-[#FFD700] text-lg tracking-[0.3em]">
                 AUTOMOTIVE
               </span>
             </a>
-            <p className="text-gray-400 text-sm leading-relaxed mb-6">
+            <p className="mb-6 text-sm leading-relaxed text-gray-400">
               Your premier destination for luxury vehicles. We bring the world's 
               finest automobiles to discerning drivers.
             </p>
@@ -85,7 +85,7 @@ const Footer = () => {
           {/* Quick Links */}
           <div>
             <h4 
-              className="text-white text-lg font-medium mb-6"
+              className="mb-6 text-lg font-medium text-white"
               style={{ fontFamily: 'Playfair Display, serif' }}
             >
               Quick Links
@@ -97,7 +97,7 @@ const Footer = () => {
                     href={link.href}
                     className="text-gray-400 text-sm hover:text-[#FFD700] transition-colors duration-300 inline-flex items-center gap-2 group"
                   >
-                    <ArrowRight className="w-3 h-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+                    <ArrowRight className="w-3 h-3 transition-all duration-300 -translate-x-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-0" />
                     {link.name}
                   </a>
                 </li>
@@ -108,7 +108,7 @@ const Footer = () => {
           {/* Services */}
           <div>
             <h4 
-              className="text-white text-lg font-medium mb-6"
+              className="mb-6 text-lg font-medium text-white"
               style={{ fontFamily: 'Playfair Display, serif' }}
             >
               Services
@@ -120,7 +120,7 @@ const Footer = () => {
                     href={service.href}
                     className="text-gray-400 text-sm hover:text-[#FFD700] transition-colors duration-300 inline-flex items-center gap-2 group"
                   >
-                    <ArrowRight className="w-3 h-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+                    <ArrowRight className="w-3 h-3 transition-all duration-300 -translate-x-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-0" />
                     {service.name}
                   </a>
                 </li>
@@ -131,7 +131,7 @@ const Footer = () => {
           {/* Contact Info */}
           <div>
             <h4 
-              className="text-white text-lg font-medium mb-6"
+              className="mb-6 text-lg font-medium text-white"
               style={{ fontFamily: 'Playfair Display, serif' }}
             >
               Contact Us
@@ -139,26 +139,26 @@ const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-[#FFD700] flex-shrink-0 mt-0.5" />
-                <span className="text-gray-400 text-sm">
-                  123 Luxury Lane, Beverly Hills, CA 90210
+                <span className="text-sm text-gray-400">
+                  123 Luxury Lane, Maitama street, Jos Plateau State
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-[#FFD700] flex-shrink-0" />
-                <span className="text-gray-400 text-sm">
-                  +1 (800) 555-LUXE
+                <span className="text-sm text-gray-400">
+                  +234 810 7048 910
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-[#FFD700] flex-shrink-0" />
-                <span className="text-gray-400 text-sm">
-                  info@luxeautomotive.com
+                <span className="text-sm text-gray-400">
+                  makuakpavan022@gmail.com
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <Clock className="w-5 h-5 text-[#FFD700] flex-shrink-0" />
-                <span className="text-gray-400 text-sm">
-                  Mon-Sat: 9AM - 7PM
+                <span className="text-sm text-gray-400">
+                  Mon-Sat: 8:30AM - 6:00PM
                 </span>
               </li>
             </ul>
@@ -166,21 +166,21 @@ const Footer = () => {
         </div>
 
         {/* Newsletter */}
-        <div className="mt-16 pt-12 border-t border-white/10">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
+        <div className="pt-12 mt-16 border-t border-white/10">
+          <div className="grid items-center gap-8 md:grid-cols-2">
             <div>
               <h4 
-                className="text-white text-xl font-medium mb-2"
+                className="mb-2 text-xl font-medium text-white"
                 style={{ fontFamily: 'Playfair Display, serif' }}
               >
                 Stay Updated
               </h4>
-              <p className="text-gray-400 text-sm">
+              <p className="text-sm text-gray-400">
                 Subscribe for exclusive offers and automotive insights.
               </p>
             </div>
             <form onSubmit={handleSubmit} className="flex gap-3">
-              <div className="flex-1 relative">
+              <div className="relative flex-1">
                 <input
                   type="email"
                   value={email}
@@ -204,10 +204,10 @@ const Footer = () => {
 
       {/* Bottom Bar */}
       <div className="border-t border-white/10">
-        <div className="w-full px-4 sm:px-6 lg:px-12 xl:px-20 py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-500 text-sm">
-              © 2024 Luxe Automotive. All rights reserved.
+        <div className="w-full px-4 py-6 sm:px-6 lg:px-12 xl:px-20">
+          <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
+            <p className="text-sm text-gray-500">
+              © {new Date().getFullYear()} Luxe Automotive. All rights reserved.
             </p>
             <div className="flex gap-6">
               <a href="#" className="text-gray-500 text-sm hover:text-[#FFD700] transition-colors duration-300">
