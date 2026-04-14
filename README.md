@@ -71,3 +71,6 @@ export default defineConfig([
   },
 ])
 ```
+
+NOTE:
+download chatGPT and codeGPT on vscode
