@@ -15,7 +15,7 @@ const Blog = lazy(() => import("./sections/Blog"));
 const CTA = lazy(() => import("./sections/CTA"));
 import "./App.css";
 
-function App() {
+export default function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
@@ -102,5 +102,3 @@ function App() {
     </BrowserRouter>
   );
 }
-
-export default App;
